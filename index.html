@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function getComputerChoice() {
+        const options = ['rock','paper','scissors'];
+        const index = Math.floor(Math.random() * 3);
+        return options[index];
+    }
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === computerSelection){
+        return "Tie"
+    }
+    
+        else if (playerSelection === 'rock' && computerSelection === 'scissors' ){
+        return 'Player wins'
+    }
+        else if (playerSelection === 'scissors' && computerSelection === 'paper' ){
+        return 'Player wins'
+
+    }
+        else if (playerSelection === 'paper' && computerSelection === 'rock' ){
+        return 'Player wins'
+
+    }
+        else if (playerSelection !== 'paper' && playerSelection !== 'rock' && playerSelection !== 'scissors' ){
+        return 'Please choose among rock/paper/scissors'
+
+    }
+        else {
+            return 'Computer Wins'
+        }
+}
+
+    
+
+    function playerSelection(){
+        let choice = prompt("Choose rock/paper/scissor");
+        choice = choice.toLowerCase();
+        return choice;
+    }
+    
+
+    
+   
+
+    function playGame(){
+        let cscore = 0;
+        let pscore = 0;
+        for (let i = 1; i <= 5; i++) {
+            let player = playerSelection();
+            let computer = getComputerChoice();
+            result = playRound(player, computer);
+            if(result==='Player wins'){
+                pscore += 1 ;
+            }
+            else if(result==='Computer Wins'){
+                cscore += 1 ;
+            }
+
+            console.log('ROUND: '+ i);
+            console.log('player: '+ player);
+            console.log('computer: ' + computer);
+            console.log('result: ' + result);
+            console.log('Player Score: ' + pscore);
+            console.log('Computer Score: ' + cscore);
+
+            }
+        
+
+            
+
+            console.log('Final Player Score: ' + pscore);
+            console.log('Final Computer Score: ' + cscore);
+
+            if(pscore>cscore){
+                console.log('PLAYER WINS');
+            }
+            else if(cscore>pscore){
+                console.log('COMPUTER WINS');
+            }
+
+
+
+            
+            
+
+        
+}
+
+playGame()
+
+    
+        
+
+    
+</script>
+</html>
